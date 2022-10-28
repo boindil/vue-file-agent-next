@@ -1,35 +1,13 @@
 <script lang="ts">
 // https://github.com/dvuckovic/vue3-bootstrap-icons
-import normalizeSlot from '../../utils/normalize-slot'
-import {computed, defineComponent, h, PropType, VNode, VNodeArrayChildren} from 'vue'
-import {Animation, IconSize, TextColorVariant} from '../../types'
+import {computed, defineComponent, h} from 'vue'
+import normalizeSlot from '../../utils/normalizeSlot'
+import {ICON_BASE_PROPS} from '../../constants/icon'
 import {toFloat} from '../../utils/number'
 
 export default /* #__PURE__ */ defineComponent({
-  name: 'BIcon',
-  props: {
-    animation: {type: String as PropType<Animation>},
-    class: {type: [Array, Object, String], required: false},
-    content: {
-      type: [String, Object] as PropType<string | number | boolean | VNode | VNodeArrayChildren>,
-      required: false,
-    },
-    flipH: {type: Boolean, default: false},
-    flipV: {type: Boolean, default: false},
-    fontScale: {type: [Number, String], default: 1},
-    rotate: {
-      type: [String, Number],
-      required: false,
-      validator: (value: string | number) => value >= -360 && value <= 360,
-    },
-    scale: {type: [Number, String], default: 1},
-    shiftH: {type: [Number, String], default: 0},
-    shiftV: {type: [Number, String], default: 0},
-    size: {type: String as PropType<IconSize>, required: false},
-    stacked: {type: Boolean, default: false},
-    title: {type: String, required: false},
-    variant: {type: String as PropType<TextColorVariant>, required: false},
-  },
+  name: 'BIconBase',
+  props: ICON_BASE_PROPS,
   setup(props, {slots}) {
     const computedFontScale = computed(() => Math.max(toFloat(props.fontScale, 1), 0) || 1)
     const computedScale = computed(() => Math.max(toFloat(props.scale, 1), 0) || 1)

@@ -12,7 +12,8 @@ import {
   isUndefinedOrNull,
   toType,
 } from './inspect'
-import normalizeSlot from './normalize-slot'
+import normalizeSlot from './normalizeSlot'
+import {omit} from './object'
 import {stringToInteger, toFloat, toInteger, toPrecison} from './number'
 
 export {
@@ -33,6 +34,7 @@ export {
   isUndefined,
   isUndefinedOrNull,
   toType,
+  omit,
 }
 
 export default {
@@ -54,4 +56,5 @@ export default {
   isUndefined,
   isUndefinedOrNull,
   toType,
+  omit,
 }

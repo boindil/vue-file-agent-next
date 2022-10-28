@@ -28,13 +28,15 @@
     "serve": "vite",
     "lint": "eslint --ext .js,.vue --ignore-path ../../.gitignore --fix src",
     "format": "prettier . --write",
-    "test": "pnpm run test:lint",
-    "test:lint": "pnpm run lint"
+    "test": "pnpm run test:lint && pnpm run test:unit",
+    "test:lint": "pnpm run lint",
+    "test:unit": "vitest",
+    "test:coverage": "vitest --coverage"
   },
   "peerDependencies": {
     "@popperjs/core": "^2.11.6",
     "bootstrap": "^5.2.0",
-    "bootstrap-icons": "^1.5.0",
+    "bootstrap-icons": "^1.9.1",
     "vue": "^3.2.37"
   },
   "dependencies": {
@@ -49,9 +51,10 @@
     "@vue/shared": "^3.2.37",
     "@vue/test-utils": "^2.0.2",
     "bootstrap": "^5.2.0",
-    "bootstrap-icons": "^1.5.0",
+    "bootstrap-icons": "^1.9.1",
     "c8": "^7.12.0",
     "happy-dom": "^7.5.12",
+    "jiti": "^1.16.0",
     "rollup": "^2.78.1",
     "rollup-plugin-visualizer": "^5.7.1",
     "sass": "^1.54.4",
