@@ -64,7 +64,7 @@ jobs:
         if: ${{ steps.release.outputs.releases_created }}
 
       - name: Publish 
-        run: pnpm publish --tag develop --filter "@boindil/vue-file-agent-next"
+        run: pnpm publish --access public --tag develop --filter "@boindil/vue-file-agent-next"
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
         if: ${{ steps.release.outputs.releases_created }}

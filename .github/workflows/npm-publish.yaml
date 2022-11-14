@@ -39,6 +39,6 @@ jobs:
         run: pnpm test
 
       - name: Publish
-        run: pnpm publish --filter "@boindil/vue-file-agent-next"
+        run: pnpm publish --access public --filter "@boindil/vue-file-agent-next"
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
