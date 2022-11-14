@@ -1,8 +1,0 @@
-{
-  "extends": "tsconfig/base.json",
-  "compilerOptions": {
-    "baseUrl": ".",
-    "types": ["@vuepress/client/types"]
-  },
-  "include": ["./**/*.ts", "./**/*.vue", "./docs/.vuepress/**/*.ts", "./docs/.vuepress/**/*.vue"]
-}

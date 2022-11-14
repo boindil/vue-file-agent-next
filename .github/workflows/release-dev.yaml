@@ -24,8 +24,8 @@ jobs:
         id: release
         with:
           release-type: node
-          path: packages/bootstrap-vue-3
-          package-name: bootstrap-vue-3
+          path: packages/vue-file-agent-next
+          package-name: @boindil/vue-file-agent-next
           bump-minor-pre-major: true
           bump-patch-for-minor-pre-major: true
           default-branch: dev
@@ -64,7 +64,7 @@ jobs:
         if: ${{ steps.release.outputs.releases_created }}
 
       - name: Publish 
-        run: pnpm publish --tag develop --filter bootstrap-vue-3
+        run: pnpm publish --tag develop --filter @boindil/vue-file-agent-next
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
         if: ${{ steps.release.outputs.releases_created }}

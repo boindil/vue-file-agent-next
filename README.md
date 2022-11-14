@@ -1,79 +1,191 @@
-<p align="center">
-  <a href="https://cdmoro.github.io/bootstrap-vue-3/">
-    <img src="https://raw.githubusercontent.com/cdmoro/bootstrap-vue-3/main/apps/docs/docs/.vuepress/public/logo.png" width="300">
-  </a>
-</p>
+# Vue File Agent for Vue 3
 
-<h1 align="center">BootstrapVue 3</h1>
-<p align="center">Early (but lovely) implementation of Vue 3, Bootstrap 5 and Typescript</p>
+> Every file deserves to be treated equally
 
-<br>
+High performant Vue file **upload** component with elegant and distinguishable **previews** for every file type and support for **drag and drop**, **validations**, default uploader with **progress** support and externally customizable in the "vue way"
 
-<p align="center">
-  <a href="https://www.npmjs.com/package/bootstrap-vue-3">
-    <img src="https://flat.badgen.net/npm/v/bootstrap-vue-3" alt="Current version">
-  </a>
-  <a href="https://getbootstrap.com/docs/5.0/getting-started/introduction/">
-    <img src="https://flat.badgen.net/badge/bootstrap/5.0.x/563d7c" alt="Bootstrap version">
-  </a>
-  <a href="https://v3.vuejs.org/">
-    <img src="https://flat.badgen.net/badge/vue.js/3.0.x/4fc08d" alt="Vue.js version">
-  </a>
+<div class="clearfix"></div>
 
-  <a href="https://github.com/cdmoro/bootstrap-vue-3/actions?workflow=Tests">
-    <img src="https://flat.badgen.net/github/status/cdmoro/bootstrap-vue-3" alt="Build status">
-  </a>
+<!-- ## [Live Demo][] · [CodePen Playground](https://codepen.io/boindil/pen/<not yet ready>) -->
 
-  <br>
+![Demo](website/assets/demo.gif?v=1.5)
 
-  <a href="https://www.npmjs.com/package/bootstrap-vue-3">
-    <img src="https://flat.badgen.net/npm/dt/bootstrap-vue-3" alt="npm downloads">
-  </a>
-  <a href="https://www.npmjs.com/package/bootstrap-vue-3">
-    <img src="https://flat.badgen.net/npm/dw/bootstrap-vue-3" alt="npm weekly downloads">
-  </a>
-</p>
+## Features
 
-# Why BootstrapVue3?
+- Exclusively designed for Vue with performance and simplicity in mind
+- No dependency but small footprint - **17KB** minified, gzipped
+- Elegant and responsive design with two official themes: grid view and list view
+- File input with drag and drop with support for folders
+- Smooth Transitions
+- Multiple File Uploads
+- Max File Size, Accepted file types validation
+- Image/Video/Audio Previews
+- File type icons
+- Default uploader with progress
+- Externally controllable via Vue bindings and methods
+- Built in support for server side validation and error handling
+- Official [Upload Server Examples](upload-server-examples) for **PHP** and **Node Js**
+- File names can be edited with `:editable` prop
+- Intuitive drag & drop sortable with `:sortable` prop
+- Resumable uploads with `:resumable` prop through [tus.io](https://tus.io) protocol
+- Can be used with any css/component framework, including but not limited to: Bootstrap, Bulma, Tailwind, Vuetify, etc.
 
-BootstrapVue3 is an attempt to have [BootstrapVue](https://bootstrap-vue.org/) components in Vue3, Bootstrap 5, and typescript. Another goal is to have components written in a simple and readable way.
+## Basic Usage
 
-As you may suppose, this library is heavily inspired by **BootstrapVue**, as well as its component properties, events, slots, directives, etc. We want to make it that way because we want to have compatibility with **BootstrapVue**, so it will be easy to switch between libraries.
+<!-- #### Template -->
 
-# Install
+<!-- {% raw %}) -->
 
-```console
-# NPM
-npm i --save bootstrap bootstrap-vue-3 @popperjs/core
-
-# Yarn
-yarn add bootstrap bootstrap-vue-3 @popperjs/core
-
-# PNPM
-pnpm add bootstrap bootstrap-vue-3 @popperjs/core
+```html
+<template>
+  <VueFileAgent :uploadUrl="uploadUrl" v-model="fileRecords"></VueFileAgent>
+</template>
 ```
 
-# Contribute & support 🙌
+<!-- {% endraw %}) -->
 
-This project is still in **alpha version** so there is a lot of work to do. If you want to contribute you can:
+**NOTE:** when `uploadUrl` is provided, auto uploading is enabled. See [Advanced Usage](#advanced-usage) section below for manual uploading example.
 
-- submit an [issue](https://github.com/cdmoro/bootstrap-vue-3/issues/new)
-- or better, a [pull request](https://github.com/cdmoro/bootstrap-vue-3/pulls)
-- or even better, visit [my Patreon page](https://patreon.com/cdmoro) and support me 😄
+<!-- #### Script -->
 
-Read our [Contribution Guide](https://github.com/cdmoro/bootstrap-vue-3/blob/main/CONTRIBUTING.md) on how to start helping
+<!-- ```javascript -->
 
-## One-time donations
+```html
+<script>
+  export default {
+    data() {
+      return {
+        // ...
+        fileRecords: [],
+        uploadUrl: 'https://example.com',
+        // ...
+      };
+    },
+    // ...
+  };
+</script>
+```
 
-Or if you prefer you can make a one-time donation through these channels:
+### That's it?
 
-[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/cdmoro)
-[![Invitame un café en cafecito.app](https://cdn.cafecito.app/imgs/buttons/button_2.svg)](https://cafecito.app/cdmoro)
+Yes. That's it. It's _that_ simple. See [Advanced Usage](#advanced-usage) section below to tailor it for your specific needs.
 
-# Links
+## Installation
 
-- :blue_book: [Documentation](https://cdmoro.github.io/bootstrap-vue-3/)
+```
+npm install vue-file-agent --save
+```
 
-# License
+```javascript
+import Vue from 'vue';
+import VueFileAgent from 'vue-file-agent';
+import VueFileAgentStyles from 'vue-file-agent/dist/vue-file-agent.css';
 
-Released under the MIT [Licence](./LICENSE). Copyright (c) BootstrapVue3.
+Vue.use(VueFileAgent);
+```
+
+or with script tag
+
+```html
+<!-- jsdelivr cdn -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vue-file-agent@latest/dist/vue-file-agent.css" />
+<script src="https://cdn.jsdelivr.net/npm/vue-file-agent@latest/dist/vue-file-agent.umd.js"></script>
+
+<!-- unpkg -->
+<link rel="stylesheet" href="https://unpkg.com/vue-file-agent@latest/dist/vue-file-agent.css" />
+<script src="https://unpkg.com/vue-file-agent@latest/dist/vue-file-agent.umd.js"></script>
+```
+
+[Download from Github](https://github.com/boindil/vue-file-agent-next/releases)
+
+## Advanced Usage
+
+<!-- #### Template -->
+<!-- {% raw %} -->
+
+```html
+<template>
+  <VueFileAgent
+    ref="vueFileAgent"
+    :theme="'list'"
+    :multiple="true"
+    :deletable="true"
+    :meta="true"
+    :accept="'image/*,.zip'"
+    :maxSize="'10MB'"
+    :maxFiles="14"
+    :helpText="'Choose images or zip files'"
+    :errorText="{
+      type: 'Invalid file type. Only images or zip Allowed',
+      size: 'Files should not exceed 10MB in size',
+    }"
+    @select="filesSelected($event)"
+    @beforedelete="onBeforeDelete($event)"
+    @delete="fileDeleted($event)"
+    v-model="fileRecords"
+  ></VueFileAgent>
+  <button :disabled="!fileRecordsForUpload.length" @click="uploadFiles()">
+    Upload {{ fileRecordsForUpload.length }} files
+  </button>
+</template>
+```
+
+<!-- {% endraw %}) -->
+<!-- #### Script -->
+
+<!-- ```javascript -->
+
+```html
+<script>
+  export default {
+    data: function () {
+      return {
+        fileRecords: [],
+        uploadUrl: 'https://www.mocky.io/v2/5d4fb20b3000005c111099e3',
+        uploadHeaders: { 'X-Test-Header': 'vue-file-agent' },
+        fileRecordsForUpload: [], // maintain an upload queue
+      };
+    },
+    methods: {
+      uploadFiles: function () {
+        // Using the default uploader. You may use another uploader instead.
+        this.$refs.vueFileAgent.upload(this.uploadUrl, this.uploadHeaders, this.fileRecordsForUpload);
+        this.fileRecordsForUpload = [];
+      },
+      deleteUploadedFile: function (fileRecord) {
+        // Using the default uploader. You may use another uploader instead.
+        this.$refs.vueFileAgent.deleteUpload(this.uploadUrl, this.uploadHeaders, fileRecord);
+      },
+      filesSelected: function (fileRecordsNewlySelected) {
+        var validFileRecords = fileRecordsNewlySelected.filter((fileRecord) => !fileRecord.error);
+        this.fileRecordsForUpload = this.fileRecordsForUpload.concat(validFileRecords);
+      },
+      onBeforeDelete: function (fileRecord) {
+        var i = this.fileRecordsForUpload.indexOf(fileRecord);
+        if (i !== -1) {
+        // queued file, not yet uploaded. Just remove from the arrays
+          this.fileRecordsForUpload.splice(i, 1);
+          var k = this.fileRecords.indexOf(fileRecord);
+          if (k !== -1) this.fileRecords.splice(k, 1);
+        } else {
+          if (confirm('Are you sure you want to delete?')) {
+            this.$refs.vueFileAgent.deleteFileRecord(fileRecord); // will trigger 'delete' event
+          }
+        }
+      },
+      fileDeleted: function (fileRecord) {
+        var i = this.fileRecordsForUpload.indexOf(fileRecord);
+        if (i !== -1) {
+          this.fileRecordsForUpload.splice(i, 1);
+        } else {
+          this.deleteUploadedFile(fileRecord);
+        }
+      },
+    },
+  };
+</script>
+```
+
+## License
+
+The MIT License
