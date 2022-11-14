@@ -1,8 +1,11 @@
 import VueFilePreview from './VueFilePreview.vue'
 import {describe, expect, it} from 'vitest'
+import {config, shallowMount} from '@vue/test-utils'
 
 import FileRecord, {RawFileRecord, Options} from '../lib/file-record'
-import {getWrapper, getText} from '../../tests/utils'
+import {getText} from '../../tests/utils'
+
+config.global.renderStubDefaultSlot = true
 
 describe('vue-file-preview.vue', () => {
   const rawFileRecord = {
@@ -16,9 +19,12 @@ describe('vue-file-preview.vue', () => {
 
   it('renders FileRecord when passed', () => {
     const fileRecord = new FileRecord(rawFileRecord as RawFileRecord, {} as Options)
-    const wrapper = getWrapper(VueFilePreview, {
-      fileRecord: fileRecord,
+    const wrapper = shallowMount(VueFilePreview, {
+      props: {
+        fileRecord: fileRecord,
+      },
     })
+
     expect(getText(wrapper, '.file-name')).toBe('sample')
     expect(getText(wrapper, '.file-ext')).toBe('pdf')
     expect(getText(wrapper, '.file-size')).toBe('3 KB')
