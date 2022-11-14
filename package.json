@@ -1,0 +1,30 @@
+{
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev --parallel",
+    "test": "turbo run test",
+    "test:lint": "turbo run test:lint",
+    "test:unit": "turbo run test:unit",
+    "test:coverage": "turbo run test:coverage",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "prepare": "husky install && turbo run build"
+  },
+  "devDependencies": {
+    "eslint-config-custom": "workspace:*",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "release-please": "^14.1.0",
+    "turbo": "latest"
+  },
+  "engines": {
+    "npm": ">=7.0.0",
+    "node": ">=14.0.0"
+  },
+  "packageManager": "pnpm@7.13.0"
+}
