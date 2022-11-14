@@ -53,6 +53,7 @@ importers:
       '@vue/runtime-core': ^3.2.43
       '@vue/shared': ^3.2.43
       '@vue/test-utils': ^2.0.2
+      bootstrap: ^5.2.2
       c8: ^7.12.0
       happy-dom: ^7.5.12
       jsdom: ^20.0.0
@@ -78,6 +79,7 @@ importers:
       '@vue/runtime-core': 3.2.45
       '@vue/shared': 3.2.45
       '@vue/test-utils': 2.1.0_vue@3.2.45
+      bootstrap: 5.2.2_@popperjs+core@2.11.6
       c8: 7.12.0
       happy-dom: 7.6.6
       jsdom: 20.0.1
@@ -1381,6 +1383,14 @@ packages:
 
   /boolbase/1.0.0:
     resolution: {integrity: sha512-JZOSA7Mo9sNGB8+UjSgzdLtokWAky1zbztM3WRLCbZ70/3cTANmQmOdR7y2g+J0e2WXywy1yS468tY+IruqEww==}
+    dev: true
+
+  /bootstrap/5.2.2_@popperjs+core@2.11.6:
+    resolution: {integrity: sha512-dEtzMTV71n6Fhmbg4fYJzQsw1N29hJKO1js5ackCgIpDcGid2ETMGC6zwSYw09v05Y+oRdQ9loC54zB1La3hHQ==}
+    peerDependencies:
+      '@popperjs/core': ^2.11.6
+    dependencies:
+      '@popperjs/core': 2.11.6
     dev: true
 
   /brace-expansion/1.1.11:

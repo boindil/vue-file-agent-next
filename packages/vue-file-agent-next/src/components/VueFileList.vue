@@ -1,10 +1,10 @@
 <template>
   <div>
-    <slot></slot>
+    <slot />
   </div>
 </template>
 <script lang="ts">
-import FileRecord from '../lib/file-record';
+import FileRecord from '../lib/file-record'
 import {defineComponent} from 'vue'
 
 export default /* #__PURE__ */ defineComponent({
@@ -14,5 +14,5 @@ export default /* #__PURE__ */ defineComponent({
     axis: {type: String, required: true},
     appendTo: {type: String, required: true},
   },
-});
+})
 </script>
