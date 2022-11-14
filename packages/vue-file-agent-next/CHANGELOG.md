@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.2](https://github.com/boindil/vue-file-agent-next/compare/v1.0.0...v1.0.2) (2022-11-14)
+
+
+### Bug Fixes
+
+* build (spec was failing but not seperately run tests) ([b82c87f](https://github.com/boindil/vue-file-agent-next/commit/b82c87f5e7befac3327830f3a6e5315df52df4b9))
+* tests ([ceabdb4](https://github.com/boindil/vue-file-agent-next/commit/ceabdb47f449647a4a625c7613f2cfa36308bcd5))
+
 ## 1.0.0 (2022-11-14)
 
 
