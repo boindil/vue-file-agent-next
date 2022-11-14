@@ -1,13 +1,12 @@
 <template>
   <svg :viewBox="viewBoxComputed">
     <template v-for="(d, index) in icon.paths">
-      <path :d="d" v-if="d" :key="index" />
+      <path v-if="d" :key="index" :d="d" />
     </template>
   </svg>
 </template>
-<style></style>
 <script lang="ts">
-import { getIconFromExt, getIconByName, SvgIcon } from '../lib/icons';
+import {getIconByName, getIconFromExt, SvgIcon} from '../lib/icons'
 import {defineComponent} from 'vue'
 
 export default /* #__PURE__ */ defineComponent({
@@ -20,17 +19,18 @@ export default /* #__PURE__ */ defineComponent({
   computed: {
     viewBoxComputed(): string {
       if (!this.viewBox && this.icon && this.icon.viewBox) {
-        return this.icon.viewBox;
+        return this.icon.viewBox
       }
-      return this.viewBox ? this.viewBox : '0 0 100 100';
+      return this.viewBox ? this.viewBox : '0 0 100 100'
     },
     icon(): SvgIcon {
       if (this.name) {
-        return getIconByName(this.name);
+        return getIconByName(this.name)
       }
-      const svgIcon = getIconFromExt(this.ext?this.ext:'');
-      return svgIcon;
+      const svgIcon = getIconFromExt(this.ext ? this.ext : '')
+      return svgIcon
     },
   },
-});
+})
 </script>
+<style></style>

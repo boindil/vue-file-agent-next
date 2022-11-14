@@ -3,12 +3,26 @@
     <div class="row">
       <div class="col mb-3 text-left">
         <div class="custom-control custom-checkbox custom-control-inline">
-          <input type="checkbox" class="custom-control-input" id="basic-demo-sortable-toggle" v-model="sortable" />
-          <label class="custom-control-label" for="basic-demo-sortable-toggle">Drag & drop sortable</label>
+          <input
+            id="basic-demo-sortable-toggle"
+            v-model="sortable"
+            type="checkbox"
+            class="custom-control-input"
+          />
+          <label class="custom-control-label" for="basic-demo-sortable-toggle"
+            >Drag & drop sortable</label
+          >
         </div>
         <div class="custom-control custom-checkbox custom-control-inline">
-          <input type="checkbox" class="custom-control-input" id="basic-demo-resumable-toggle" v-model="resumable" />
-          <label class="custom-control-label" for="basic-demo-resumable-toggle">Resumable upload</label>
+          <input
+            id="basic-demo-resumable-toggle"
+            v-model="resumable"
+            type="checkbox"
+            class="custom-control-input"
+          />
+          <label class="custom-control-label" for="basic-demo-resumable-toggle"
+            >Resumable upload</label
+          >
         </div>
       </div>
       <div class="col mb-3 text-right">
@@ -29,15 +43,14 @@
       :linkable="true"
       :multiple="true"
       :theme="theme"
-      :uploadUrl="uploadUrl"
-      @select="filesSelected($event)"
-      @delete="fileDeleted($event)"
+      :upload-url="uploadUrl"
       :sortable="sortable"
       :resumable="resumable"
-    >
-    </VueFileAgent>
+      @select="filesSelected($event)"
+      @delete="fileDeleted($event)"
+    />
 
-    <div ref="screenDetector" style="height: 0; width: 0;" class="d-none d-sm-block"></div>
+    <div ref="screenDetector" style="height: 0; width: 0" class="d-none d-sm-block" />
   </div>
 </template>
 
@@ -51,12 +64,12 @@ export default defineComponent({
   name: 'DemoBasic',
   data: () => {
     const data: {
-      theme: string,
-      lastProgress: number,
-      fileRecords: FileRecord[],
-      rawFileRecords: RawFileRecord[],
-      sortable: boolean,
-      resumable: boolean,
+      theme: string
+      lastProgress: number
+      fileRecords: FileRecord[]
+      rawFileRecords: RawFileRecord[]
+      sortable: boolean
+      resumable: boolean
     } = {
       theme: 'default',
       lastProgress: 0,
@@ -64,41 +77,42 @@ export default defineComponent({
       rawFileRecords: getFileRecordsInitial(),
       sortable: false,
       resumable: true,
-    };
+    }
 
     return data
   },
   computed: {
-    uploadUrl: function() {
+    uploadUrl() {
       if (this.resumable) {
-        return 'https://master.tus.io/files/';
+        return 'https://master.tus.io/files/'
       }
-      return uploadUrl;
+      return uploadUrl
     },
   },
+  mounted() {
+    addTusClient(plugins)
+
+    const style = window.getComputedStyle(this.$refs.screenDetector as HTMLElement)
+    if (style && style.display === 'none') {
+      // probably mobile
+      this.theme = 'list'
+    }
+  },
   methods: {
-    filesSelected: function(fileRecords: FileRecord[]) {
-      console.log(fileRecords);
-      console.log(JSON.stringify(fileRecords));
+    filesSelected(fileRecords: FileRecord[]) {
+      console.log(fileRecords)
+      console.log(JSON.stringify(fileRecords))
       // manual handling
       // this.$refs.vueFileInput.upload(this.uploadUrl, fileRecords);
     },
-    fileDeleted: function(fileRecord: FileRecord) {
+    fileDeleted(fileRecord: FileRecord) {
+      console.log(`deleted fileRecord: ${JSON.stringify(fileRecord)}`)
       // manual handling
       // this.$refs.vueFileInput.deleteUpload(this.uploadUrl, fileRecord);
     },
-    switchTheme: function() {
-      this.theme = this.theme == 'list' ? 'default' : 'list';
+    switchTheme() {
+      this.theme = this.theme === 'list' ? 'default' : 'list'
     },
   },
-  mounted: function() {
-    addTusClient(plugins);
-
-    var style = window.getComputedStyle(<HTMLElement>this.$refs.screenDetector);
-    if (style && style.display == 'none') {
-      // probably mobile
-      this.theme = 'list';
-    }
-  },
-});
+})
 </script>

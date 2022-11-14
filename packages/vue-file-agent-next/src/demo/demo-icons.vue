@@ -1,12 +1,12 @@
 <template>
   <div class="bg-light">
     <span
-      :key="ext"
       v-for="(color, ext) in icons"
-      style="width: 42px; height: 42px; display: inline-block;"
-      :style="{ color: color }"
+      :key="ext"
+      style="width: 42px; height: 42px; display: inline-block"
+      :style="{color: color}"
     >
-      <VueFileIcon :ext="ext" style="width: 100%; height: 100%; fill: currentColor;"></VueFileIcon>
+      <VueFileIcon :ext="ext" style="width: 100%; height: 100%; fill: currentColor" />
     </span>
   </div>
 </template>
@@ -16,7 +16,7 @@ import {defineComponent} from 'vue'
 
 export default defineComponent({
   name: 'DemoIcons',
-  data: function() {
+  data() {
     return {
       icons: {
         pdf: 'red',
@@ -25,9 +25,7 @@ export default defineComponent({
         zip: 'orange',
         db: 'brown',
       },
-    };
+    }
   },
-  methods: {},
-  mounted: function() {},
-});
+})
 </script>

@@ -47,6 +47,7 @@
     "@vue/runtime-core": "^3.2.43",
     "@vue/shared": "^3.2.43",
     "@vue/test-utils": "^2.0.2",
+    "bootstrap": "^5.2.2",
     "c8": "^7.12.0",
     "happy-dom": "^7.5.12",
     "jsdom": "^20.0.0",

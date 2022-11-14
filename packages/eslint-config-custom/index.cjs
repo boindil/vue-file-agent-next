@@ -47,7 +47,7 @@ module.exports = {
     'no-var': 'error',
     'object-shorthand': 'warn',
     'prefer-const': 'warn',
-    'prefer-destructuring': 'warn',
+    'prefer-destructuring': ["warn", {"object": true, "array": false}],
     'prefer-numeric-literals': 'warn',
     'prefer-rest-params': 'warn',
     'prefer-spread': 'warn',

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <slot></slot>
+    <slot />
   </div>
 </template>
 <script lang="ts">
@@ -8,6 +8,8 @@ import {defineComponent} from 'vue'
 
 export default /* #__PURE__ */ defineComponent({
   name: 'VueFileListItem',
-  props: ['index'],
-});
+  props: {
+    index: Number,
+  },
+})
 </script>
