@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.3.6 (2022-11-14)
+## 1.0.0 (2022-11-14)
 
 
 ### Features
@@ -14,11 +14,6 @@
 
 
 ### Miscellaneous Chores
-
-* release 0.2.14 ([cec0a3c](https://github.com/boindil/vue-file-agent-next/commit/cec0a3cc70385d434bb5ee6112aa4f03ea617b52))
-* release 0.2.15 ([2d53fbb](https://github.com/boindil/vue-file-agent-next/commit/2d53fbbb6596a9a1302d3bc3a32a1b55708eb4e3))
-* release 0.3.0 ([6b6ea80](https://github.com/boindil/vue-file-agent-next/commit/6b6ea80775b533430fc9b8ca25d4ab9837241dcd))
-* release 0.3.6 ([17ceb11](https://github.com/boindil/vue-file-agent-next/commit/17ceb11477897bdd44e7545a3710dc169703ff7f))
 
 ## [0.0.1] (2022-10-28)
 
