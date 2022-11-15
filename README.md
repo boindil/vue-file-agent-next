@@ -1,15 +1,38 @@
-# Vue File Agent for Vue 3
+<h1 align="center">Vue File Agent for Vue 3</h1>
+<p align="center">Every file deserves to be treated equally</p>
 
-> Every file deserves to be treated equally
+<br>
+
+<p align="center">
+  <a href="https://www.npmjs.com/package/@boindil/vue-file-agent-next">
+    <img src="https://flat.badgen.net/npm/v/@boindil/vue-file-agent-next" alt="Current version">
+  </a>
+  <a href="https://v3.vuejs.org/">
+    <img src="https://flat.badgen.net/badge/vue.js/3.0.x/4fc08d" alt="Vue.js version">
+  </a>
+
+  <a href="https://github.com/boindil/vue-file-agent-next/actions?workflow=Tests">
+    <img src="https://flat.badgen.net/github/status/boindil/vue-file-agent-next" alt="Build status">
+  </a>
+
+  <br>
+
+  <a href="https://www.npmjs.com/package/@boindil/vue-file-agent-next">
+    <img src="https://flat.badgen.net/npm/dt/@boindil/vue-file-agent-next" alt="npm downloads">
+  </a>
+  <a href="https://www.npmjs.com/package/@boindil/vue-file-agent-next">
+    <img src="https://flat.badgen.net/npm/dw/@boindil/vue-file-agent-next" alt="npm weekly downloads">
+  </a>
+</p>
 
 High performant Vue file **upload** component with elegant and distinguishable **previews** for every file type and support for **drag and drop**, **validations**, default uploader with **progress** support and externally customizable in the "vue way"
 
 <div class="clearfix"></div>
 
-<!-- ## [Live Demo][] · [CodePen Playground](https://codepen.io/boindil/pen/<not yet ready>) -->
+<!-- ## [Live Demo][] · [CodePen Playground](https://codepen.io/boindil/pen/<not yet ready>) 
 
 ![Demo](website/assets/demo.gif?v=1.5)
-
+-->
 ## Features
 
 - Exclusively designed for Vue with performance and simplicity in mind
@@ -38,13 +61,13 @@ High performant Vue file **upload** component with elegant and distinguishable *
 
 ```html
 <template>
-  <VueFileAgent :uploadUrl="uploadUrl" v-model="fileRecords"></VueFileAgent>
+  <VueFileAgent :uploadUrl="uploadUrl" v-model="fileRecords" v-model:rawModelValue="rawFileRecords"></VueFileAgent>
 </template>
 ```
 
 <!-- {% endraw %}) -->
 
-**NOTE:** when `uploadUrl` is provided, auto uploading is enabled. See [Advanced Usage](#advanced-usage) section below for manual uploading example.
+**NOTE:** when `uploadUrl` is provided, auto uploading is enabled. See demo examples for manual uploading example.
 
 <!-- #### Script -->
 
@@ -57,6 +80,7 @@ High performant Vue file **upload** component with elegant and distinguishable *
       return {
         // ...
         fileRecords: [],
+        rawFileRecords: [],
         uploadUrl: 'https://example.com',
         // ...
       };
@@ -72,119 +96,39 @@ Yes. That's it. It's _that_ simple. See [Advanced Usage](#advanced-usage) sectio
 
 ## Installation
 
-```
-npm install vue-file-agent --save
+```console
+# NPM
+npm install @boindil/vue-file-agent-next --save
+
+# Yarn
+yarn add @boindil/vue-file-agent-next
+
+# PNPM
+pnpm add @boindil/vue-file-agent-next
 ```
 
 ```javascript
-import Vue from 'vue';
-import VueFileAgent from 'vue-file-agent';
-import VueFileAgentStyles from 'vue-file-agent/dist/vue-file-agent.css';
+import {createApp} from 'vue'
+import VueFileAgentNext from '@boindil/vue-file-agent-next'
 
-Vue.use(VueFileAgent);
+import '@boindil/vue-file-agent-next/dist/vue-file-agent-next.css'
+
+createApp(App).use(VueFileAgentNext).mount('#app')
 ```
 
 or with script tag
 
 ```html
 <!-- jsdelivr cdn -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vue-file-agent@latest/dist/vue-file-agent.css" />
-<script src="https://cdn.jsdelivr.net/npm/vue-file-agent@latest/dist/vue-file-agent.umd.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@boindil/vue-file-agent-next@latest/dist/vue-file-agent-next.css" />
+<script src="https://cdn.jsdelivr.net/npm/@boindil/vue-file-agent-next@latest/dist/vue-file-agent-next.umd.js"></script>
 
 <!-- unpkg -->
-<link rel="stylesheet" href="https://unpkg.com/vue-file-agent@latest/dist/vue-file-agent.css" />
-<script src="https://unpkg.com/vue-file-agent@latest/dist/vue-file-agent.umd.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/@boindil/vue-file-agent-next@latest/dist/vue-file-agent-next.css" />
+<script src="https://unpkg.com/@boindil/vue-file-agent-next@latest/dist/vue-file-agent-next.umd.js"></script>
 ```
 
 [Download from Github](https://github.com/boindil/vue-file-agent-next/releases)
-
-## Advanced Usage
-
-<!-- #### Template -->
-<!-- {% raw %} -->
-
-```html
-<template>
-  <VueFileAgent
-    ref="vueFileAgent"
-    :theme="'list'"
-    :multiple="true"
-    :deletable="true"
-    :meta="true"
-    :accept="'image/*,.zip'"
-    :maxSize="'10MB'"
-    :maxFiles="14"
-    :helpText="'Choose images or zip files'"
-    :errorText="{
-      type: 'Invalid file type. Only images or zip Allowed',
-      size: 'Files should not exceed 10MB in size',
-    }"
-    @select="filesSelected($event)"
-    @beforedelete="onBeforeDelete($event)"
-    @delete="fileDeleted($event)"
-    v-model="fileRecords"
-  ></VueFileAgent>
-  <button :disabled="!fileRecordsForUpload.length" @click="uploadFiles()">
-    Upload {{ fileRecordsForUpload.length }} files
-  </button>
-</template>
-```
-
-<!-- {% endraw %}) -->
-<!-- #### Script -->
-
-<!-- ```javascript -->
-
-```html
-<script>
-  export default {
-    data: function () {
-      return {
-        fileRecords: [],
-        uploadUrl: 'https://www.mocky.io/v2/5d4fb20b3000005c111099e3',
-        uploadHeaders: { 'X-Test-Header': 'vue-file-agent' },
-        fileRecordsForUpload: [], // maintain an upload queue
-      };
-    },
-    methods: {
-      uploadFiles: function () {
-        // Using the default uploader. You may use another uploader instead.
-        this.$refs.vueFileAgent.upload(this.uploadUrl, this.uploadHeaders, this.fileRecordsForUpload);
-        this.fileRecordsForUpload = [];
-      },
-      deleteUploadedFile: function (fileRecord) {
-        // Using the default uploader. You may use another uploader instead.
-        this.$refs.vueFileAgent.deleteUpload(this.uploadUrl, this.uploadHeaders, fileRecord);
-      },
-      filesSelected: function (fileRecordsNewlySelected) {
-        var validFileRecords = fileRecordsNewlySelected.filter((fileRecord) => !fileRecord.error);
-        this.fileRecordsForUpload = this.fileRecordsForUpload.concat(validFileRecords);
-      },
-      onBeforeDelete: function (fileRecord) {
-        var i = this.fileRecordsForUpload.indexOf(fileRecord);
-        if (i !== -1) {
-        // queued file, not yet uploaded. Just remove from the arrays
-          this.fileRecordsForUpload.splice(i, 1);
-          var k = this.fileRecords.indexOf(fileRecord);
-          if (k !== -1) this.fileRecords.splice(k, 1);
-        } else {
-          if (confirm('Are you sure you want to delete?')) {
-            this.$refs.vueFileAgent.deleteFileRecord(fileRecord); // will trigger 'delete' event
-          }
-        }
-      },
-      fileDeleted: function (fileRecord) {
-        var i = this.fileRecordsForUpload.indexOf(fileRecord);
-        if (i !== -1) {
-          this.fileRecordsForUpload.splice(i, 1);
-        } else {
-          this.deleteUploadedFile(fileRecord);
-        }
-      },
-    },
-  };
-</script>
-```
 
 ## License
 
