@@ -2,7 +2,7 @@
   "name": "@boindil/vue-file-agent-next",
   "displayName": "VueFileAgentNext",
   "description": "VueFileAgent for Vue 3",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "license": "MIT",
   "main": "./dist/vue-file-agent-next.umd.js",
   "module": "./dist/vue-file-agent-next.es.js",
