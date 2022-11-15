@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/boindil/vue-file-agent-next/compare/v1.0.2...v1.0.3) (2022-11-15)
+
+
+### Miscellaneous Chores
+
+* release 1.0.3 ([1b09f11](https://github.com/boindil/vue-file-agent-next/commit/1b09f1166746dd94d3d8618e0b3294aefde59d01))
+
 ## [1.0.2](https://github.com/boindil/vue-file-agent-next/compare/v1.0.0...v1.0.2) (2022-11-14)
 
 
