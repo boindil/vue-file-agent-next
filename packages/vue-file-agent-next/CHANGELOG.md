@@ -1,5 +1,20 @@
 # Changelog
 
+## 1.0.4 (2022-11-21)
+
+
+### Features
+
+* export FileRecord and RawFileRecord for better typescript integration ([5a54d88](https://github.com/boindil/vue-file-agent-next/commit/5a54d88e82c1addcccd53f92ec82faf5ad9e735c))
+* initial working vue3 version ([bd0b608](https://github.com/boindil/vue-file-agent-next/commit/bd0b608473f62b00aa29b5fc6ced8123cb206d5c))
+
+
+### Bug Fixes
+
+* build (spec was failing but not seperately run tests) ([035c148](https://github.com/boindil/vue-file-agent-next/commit/035c14847dc1edeffc3c51a7ba1b7c4da081df6a))
+* husky executable flag / bump version to 1.0.0 ([4b02a25](https://github.com/boindil/vue-file-agent-next/commit/4b02a25d41a484364f5c63af512de116ecb67341))
+* tests ([853e1c7](https://github.com/boindil/vue-file-agent-next/commit/853e1c7f714f0970d3e05358ce5eaefcc84963e0))
+
 ## [1.0.3](https://github.com/boindil/vue-file-agent-next/compare/v1.0.2...v1.0.3) (2022-11-15)
 
 
