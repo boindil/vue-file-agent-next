@@ -4,26 +4,24 @@ import './scss/vue-file-agent.scss'
 
 // All available components
 // Keep this list in sync with /components/index.ts please
-import VueFileIcon from './components/VueFileIcon.vue';
-import VueFilePreview from './components/VueFilePreview.vue';
-import VueFileList from './components/VueFileList.vue';
-import VueFileListItem from './components/VueFileListItem.vue';
-import VueFileAgent from './components/VueFileAgent.vue';
+import VueFileIcon from './components/VueFileIcon.vue'
+import VueFilePreview from './components/VueFilePreview.vue'
+import VueFileList from './components/VueFileList.vue'
+import VueFileListItem from './components/VueFileListItem.vue'
+import VueFileAgent from './components/VueFileAgent.vue'
 
 // Export available utils
-export { default as plugins } from './lib/plugins';
+export {default as plugins} from './lib/plugins'
 
 // Export components
-export {
-  VueFileIcon,
-  VueFilePreview,
-  VueFileList,
-  VueFileListItem,
-  VueFileAgent,
-}
+export {VueFileIcon, VueFilePreview, VueFileList, VueFileListItem, VueFileAgent}
 
 // Export types
-export type { Sortable, SortEvent } from './types'
+export type {Sortable, SortEvent} from './types'
+export type {RawFileRecord} from './lib/file-record'
+
+// Export common stuff
+export type {default as FileRecord} from './lib/file-record'
 
 // Inject all components into the global @vue/runtime-core
 // This allows intellisense in templates w/out direct importing
