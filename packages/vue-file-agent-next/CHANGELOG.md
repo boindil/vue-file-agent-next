@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.5](https://github.com/boindil/vue-file-agent-next/compare/v1.0.4...v1.0.5) (2022-12-01)
+
+
+### Miscellaneous Chores
+
+* upgrade vue-slicksort to 2.0.4 + remove deprected vite option 'logDiagnostics' ([a1d6958](https://github.com/boindil/vue-file-agent-next/commit/a1d69581161d0885af174fd9a3a0116a35b0094a))
+
 ## 1.0.4 (2022-11-21)
 
 
