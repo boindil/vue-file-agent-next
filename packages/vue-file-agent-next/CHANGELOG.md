@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.5](https://github.com/boindil/vue-file-agent-next/compare/v1.0.5...v1.0.5) (2023-02-28)
+
+
+### Bug Fixes
+
+* upgrade nuxt/kit to 1.0.0 for compatibility with node 19.x ([db0cdfb](https://github.com/boindil/vue-file-agent-next/commit/db0cdfb876afd8ef7ab7c1e31d187fb1269e71e8))
+
 ## [1.0.5](https://github.com/boindil/vue-file-agent-next/compare/v1.0.4...v1.0.5) (2022-12-01)
 
 
