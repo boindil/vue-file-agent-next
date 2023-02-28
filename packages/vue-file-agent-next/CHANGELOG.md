@@ -3,6 +3,27 @@
 ## [1.0.5](https://github.com/boindil/vue-file-agent-next/compare/v1.0.5...v1.0.5) (2023-02-28)
 
 
+### Features
+
+* export FileRecord and RawFileRecord for better typescript integration ([5a54d88](https://github.com/boindil/vue-file-agent-next/commit/5a54d88e82c1addcccd53f92ec82faf5ad9e735c))
+* initial working vue3 version ([bd0b608](https://github.com/boindil/vue-file-agent-next/commit/bd0b608473f62b00aa29b5fc6ced8123cb206d5c))
+
+
+### Bug Fixes
+
+* build (spec was failing but not seperately run tests) ([035c148](https://github.com/boindil/vue-file-agent-next/commit/035c14847dc1edeffc3c51a7ba1b7c4da081df6a))
+* husky executable flag / bump version to 1.0.0 ([4b02a25](https://github.com/boindil/vue-file-agent-next/commit/4b02a25d41a484364f5c63af512de116ecb67341))
+* tests ([853e1c7](https://github.com/boindil/vue-file-agent-next/commit/853e1c7f714f0970d3e05358ce5eaefcc84963e0))
+* upgrade nuxt/kit to 1.0.0 for compatibility with node 19.x ([baecb9c](https://github.com/boindil/vue-file-agent-next/commit/baecb9c37e5f66ec8c835bff171118bc53329207))
+
+
+### Miscellaneous Chores
+
+* upgrade vue-slicksort to 2.0.4 + remove deprected vite option 'logDiagnostics' ([a1d6958](https://github.com/boindil/vue-file-agent-next/commit/a1d69581161d0885af174fd9a3a0116a35b0094a))
+
+## [1.0.5](https://github.com/boindil/vue-file-agent-next/compare/v1.0.5...v1.0.5) (2023-02-28)
+
+
 ### Bug Fixes
 
 * upgrade nuxt/kit to 3.0.0 for compatibility with node 19.x ([baecb9c](https://github.com/boindil/vue-file-agent-next/commit/baecb9c37e5f66ec8c835bff171118bc53329207))
